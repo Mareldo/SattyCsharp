@@ -51,7 +51,7 @@ namespace saaty
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            FormKonfiguracja form = new FormKonfiguracja();
+            FormSatty form = new FormSatty();
             form.ShowDialog();
         }
 

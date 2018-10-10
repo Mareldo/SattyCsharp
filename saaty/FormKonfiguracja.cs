@@ -61,8 +61,9 @@ namespace saaty
         private void buttonZapisz_Click(object sender, EventArgs e)
         {
             if((dataGridView.Rows.Count < 3) || (dataGridView.Columns.Count < 3)) { MessageBox.Show("Muszą być co najmniej 3 kryteria i 3 alternatywy."); return; }
-            
 
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
