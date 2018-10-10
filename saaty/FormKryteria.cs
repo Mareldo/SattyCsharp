@@ -10,9 +10,11 @@ using System.Windows.Forms;
 
 namespace saaty
 {
-    public partial class FormRozmiarMacierzy : Form
+    public partial class FormKryteria : Form
     {
-        public FormRozmiarMacierzy()
+        private DataTable dt = new DataTable();
+
+        public FormKryteria()
         {
             InitializeComponent();
         }

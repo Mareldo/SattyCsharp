@@ -50,17 +50,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAlternatywy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAlternatywy.Designer.cs">
+      <DependentUpon>FormAlternatywy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKryteria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKryteria.Designer.cs">
+      <DependentUpon>FormKryteria.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRozmiarMacierzy.cs">
+    <Compile Include="FormKonfiguracja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRozmiarMacierzy.Designer.cs">
-      <DependentUpon>FormRozmiarMacierzy.cs</DependentUpon>
+    <Compile Include="FormKonfiguracja.Designer.cs">
+      <DependentUpon>FormKonfiguracja.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSatty.cs">
       <SubType>Form</SubType>
@@ -71,11 +83,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Satty.cs" />
+    <EmbeddedResource Include="FormKryteria.resx">
+      <DependentUpon>FormKryteria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRozmiarMacierzy.resx">
-      <DependentUpon>FormRozmiarMacierzy.cs</DependentUpon>
+    <EmbeddedResource Include="FormKonfiguracja.resx">
+      <DependentUpon>FormKonfiguracja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
