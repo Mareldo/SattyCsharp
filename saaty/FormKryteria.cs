@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,9 +21,15 @@ namespace saaty
             InitializeComponent();
             dataGridView1.DataSource = dt;
 
-            foreach(string i in Kryteria)
+            for (int i = Kryteria.Count - 1; i >= 0; i--)
             {
-                dt.Columns.Add(i);
+                dt.Columns.Add(Kryteria[i]);
+
+            }
+
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
             DataRow temp;
@@ -35,7 +42,25 @@ namespace saaty
             }
         }
 
+        
 
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex < 0 || e.RowIndex < 0) { return; }
 
+            GridFormValid valid = new GridFormValid(e.RowIndex,
+                                                    e.ColumnIndex,
+                                                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+
+            if(valid.Valid())
+            {
+                dataGridView1.Rows[valid.Row].Cells[valid.Column].Value = valid.Value;
+            }
+            else
+            {
+                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
+                dataGridView1.Rows[e.ColumnIndex].Cells[e.RowIndex].Value = "";
+            }
+        }
     }
 }

@@ -22,45 +22,26 @@ namespace saaty
         public FormKonfiguracja()
         {
             InitializeComponent();
-            dataGridView.DataSource = dt;
-            DataGridViewColumn col = new DataGridViewTextBoxColumn();
-            col.HeaderText = "";
-            dataGridView.Columns.Add(col);
-
-            Alternatywy = new List<string>();
-            Kryteria = new List<string>();
-        }
-
-        private void buttonAddAlt_Click(object sender, EventArgs e)
-        {
-            if (dataGridView.Rows.Count == 9) { MessageBox.Show("Maksymalna liczba alternatyw to 9."); return; }
-            dt.Rows.Add();
-            dataGridView.Rows[dataGridView.Rows.Count-1].HeaderCell.Value = textBoxAlt.Text;
-
-            Alternatywy.Add(textBoxAlt.Text);
-        }
-
-        private void buttonAddKryt_Click(object sender, EventArgs e)
-        {
-            if(dataGridView.Columns.Count == 9) { MessageBox.Show("Maksymalna liczba kryteriów to 9."); return; }
-            DataGridViewColumn col = new DataGridViewTextBoxColumn();
-
-            if (dataGridView.Columns[0].HeaderText == "")
-            {
-                dataGridView.Columns[0].HeaderText = textBoxKryt.Text;
-            }
-            else
-            {
-                col.HeaderText = textBoxKryt.Text;
-                dataGridView.Columns.Add(col);
-            }
-
-            Kryteria.Add(textBoxKryt.Text);
+            this.DialogResult = DialogResult.No;
         }
 
         private void buttonZapisz_Click(object sender, EventArgs e)
         {
-            if((dataGridView.Rows.Count < 3) || (dataGridView.Columns.Count < 3)) { MessageBox.Show("Muszą być co najmniej 3 kryteria i 3 alternatywy."); return; }
+            int Alternatywy;
+            int Kryteria;
+            if (!int.TryParse(textBoxAlternatywy.Text, out Alternatywy)) { MessageBox.Show("Niepoprawna liczba alternatyw."); return; }
+            if (!int.TryParse(textBoxKryteria.Text, out Kryteria)) { MessageBox.Show("Niepoprawna liczba kryterióww."); return; }
+
+            if ((Kryteria < 3) || (Alternatywy < 3)) { MessageBox.Show("Minimalna ilosc alternatyw i kryteriów to 3."); return; }
+            if ((Kryteria > 9) || (Alternatywy > 9)) { MessageBox.Show("Maksymalna ilosc alternatyw i kryteriów to 9."); return; }
+
+            FormNazywanie formNaz = new FormNazywanie(Alternatywy, Kryteria);
+            formNaz.ShowDialog();
+
+            if(formNaz.DialogResult != DialogResult.OK) { this.Close(); }
+
+            this.Alternatywy = new List<string>(formNaz.Alternatywy);
+            this.Kryteria = new List<string>(formNaz.Kryteria);
 
             this.DialogResult = DialogResult.OK;
             this.Close();
