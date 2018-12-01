@@ -17,7 +17,24 @@ namespace saaty
     {
         public FormMenu()
         {
-            InitializeComponent();
+            InitializeComponent();   
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormSatty form = new FormSatty();
+            this.Show();
+        }
+
+        private void buttonWyjdz_Click(object sender, EventArgs e)
+        {
+            Application.Exit();   
+        }
+
+        private void buttonDemo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
 
             double[,] kryteria = { { 1, 1/7.0, 1/3.0, 3, 1/5.0},
                           { 7, 1, 5, 9, 3},
@@ -47,17 +64,16 @@ namespace saaty
             Satty satty = new Satty(kryteria, alternatywy);
             satty.Weryfikacja();
             List<double> wyniki = new List<double>(satty.Oceniaj());
-        }
 
-        private void buttonStart_Click(object sender, EventArgs e)
-        {
-            FormSatty form = new FormSatty();
-            form.ShowDialog();
-        }
+            List<string> Kryteria = new List<string>
+            {
+                "Test1",
+                "Test2",
+                "Test3"
+            };
+            FormSatty form = new FormSatty(Kryteria, wyniki);
 
-        private void buttonWyjdz_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            this.Show();
         }
     }
 }

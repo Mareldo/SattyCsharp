@@ -61,6 +61,14 @@ namespace saaty
             this.kryteria = kryteria;
             Alternatywy = new List<string>();
             Kryteria = new List<string>();
+            for (int i = 0; i < alternatywy; i++)
+            {
+                Alternatywy.Add("0");
+            }
+            for (int i = 0; i < kryteria; i++)
+            {
+                Kryteria.Add("0");
+            }
         }
 
         private void buttonDalej_Click(object sender, EventArgs e)
@@ -76,14 +84,18 @@ namespace saaty
                 matchAlternatywy = Regex.Match(i.Name, valAlternatywy);
                 if(matchAlternatywy.Success)
                 {
-                    Alternatywy.Add(i.Text);
+                    char lastChar = i.Name[i.Name.Length - 1];
+                    int lastIndex = int.Parse(lastChar.ToString()) - 1;
+                    Alternatywy[lastIndex] = i.Text;
                     continue;
                 }
 
                 matchKryteria = Regex.Match(i.Name, valKryteria);
                 if (matchKryteria.Success)
                 {
-                    Kryteria.Add(i.Text);
+                    char lastChar = i.Name[i.Name.Length - 1];
+                    int lastIndex = int.Parse(lastChar.ToString()) - 1;
+                    Kryteria[lastIndex] = i.Text;
                 }
             }
 

@@ -12,6 +12,7 @@ namespace saaty
         public int Row { get; private set; }
         public int Column { get; private set; }
         public string Value { get; private set; }
+        public int Fractal { get; set; }
 
         public GridFormValid(int Row, int Column, string Value)
         {
@@ -20,17 +21,47 @@ namespace saaty
             this.Value = Value;
         }
 
-        private bool checkIfCellIsRegex(string Value)
+        public bool checkIfCellIsRegex()
+        {
+            string number1 = @"[1-9]";
+            string number2 = @"1/[2-9]";
+            Match matchNumber1;
+            matchNumber1 = Regex.Match(this.Value, number1);
+            if (matchNumber1.Success)
+            {
+                this.Fractal = 1;
+            }
+            Match matchNumber2;
+            matchNumber2 = Regex.Match(this.Value, number2);
+            if (matchNumber2.Success)
+            {
+                this.Fractal = 2;
+            }
+
+            if (matchNumber1.Success || matchNumber2.Success) { return false; }
+            Fractal = 0;
+            return true;
+        }
+
+        public bool checkIfCellIsRegex(string Value)
         {
             string number1 = @"[1-9]";
             string number2 = @"1/[2-9]";
             Match matchNumber1;
             matchNumber1 = Regex.Match(Value, number1);
-
+            if(matchNumber1.Success)
+            {
+                this.Fractal = 1;
+            }
             Match matchNumber2;
             matchNumber2 = Regex.Match(Value, number2);
+            if (matchNumber2.Success)
+            {
+                this.Fractal = 2;
+            }
 
             if (matchNumber1.Success || matchNumber2.Success) { return false; }
+            Fractal = 0;
             return true;
         }
 

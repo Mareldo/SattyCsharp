@@ -33,6 +33,7 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.textBoxAlternatywy = new System.Windows.Forms.TextBox();
             this.textBoxKryteria = new System.Windows.Forms.TextBox();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // buttonZapisz
@@ -54,7 +55,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(12, 31);
+            this.materialLabel1.Location = new System.Drawing.Point(12, 48);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(87, 19);
@@ -76,7 +77,7 @@
             // 
             // textBoxAlternatywy
             // 
-            this.textBoxAlternatywy.Location = new System.Drawing.Point(117, 30);
+            this.textBoxAlternatywy.Location = new System.Drawing.Point(117, 49);
             this.textBoxAlternatywy.Name = "textBoxAlternatywy";
             this.textBoxAlternatywy.Size = new System.Drawing.Size(100, 20);
             this.textBoxAlternatywy.TabIndex = 8;
@@ -88,11 +89,25 @@
             this.textBoxKryteria.Size = new System.Drawing.Size(100, 20);
             this.textBoxKryteria.TabIndex = 9;
             // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(12, 9);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(231, 19);
+            this.materialLabel3.TabIndex = 10;
+            this.materialLabel3.Text = "Podaj ilość alternatyw i kryteriów";
+            // 
             // FormKonfiguracja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 192);
+            this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.textBoxKryteria);
             this.Controls.Add(this.textBoxAlternatywy);
             this.Controls.Add(this.materialLabel2);
@@ -100,6 +115,7 @@
             this.Controls.Add(this.buttonZapisz);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormKonfiguracja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormNazywanie";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -112,5 +128,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.TextBox textBoxAlternatywy;
         private System.Windows.Forms.TextBox textBoxKryteria;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
     }
 }
