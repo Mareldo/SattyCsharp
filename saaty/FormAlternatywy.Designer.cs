@@ -61,7 +61,7 @@
             this.buttonDalej.Primary = true;
             this.buttonDalej.Size = new System.Drawing.Size(110, 37);
             this.buttonDalej.TabIndex = 1;
-            this.buttonDalej.Text = "buttonDalej";
+            this.buttonDalej.Text = "Dalej";
             this.buttonDalej.UseVisualStyleBackColor = true;
             this.buttonDalej.Click += new System.EventHandler(this.buttonDalej_Click);
             // 

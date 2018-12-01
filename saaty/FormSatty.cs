@@ -36,7 +36,7 @@ namespace saaty
 
             obliczanieSatty(out List<double> wyniki);
 
-            this.ShowDialog();
+            
             if (wyniki[0] == 0) { MessageBox.Show("Błąd w wyliczeniu. Podaj dane jeszcze raz."); return; }
 
             labelKryterium1.Text = Kryteria[0];
@@ -48,8 +48,7 @@ namespace saaty
             labelWynik3.Text = wyniki[2].ToString("N2");
 
             labelKryteriumWynik.Text = Kryteria[wyniki.IndexOf(wyniki.Max())];
-            
-            
+            this.ShowDialog();
         }
 
         public FormSatty(List<string> Kryteria, List<double> Wyniki)
